@@ -1,5 +1,5 @@
 # #set env vars
-# set -o allexport; source .env; set +o allexport;
+set -o allexport; source .env; set +o allexport;
 
 #wait until the server is ready
 echo "Waiting for software to be ready ..."
@@ -35,3 +35,4 @@ awk -v block="$SOCKET_IO_BLOCK" '
 ' "$NGINX_CONF" > /tmp/nginx.conf.tmp && mv /tmp/nginx.conf.tmp "$NGINX_CONF"
 
 echo "Nginx configuration updated with socket.io proxy settings for port 443."
+docker exec elestio-nginx nginx -s reload;
