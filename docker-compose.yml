@@ -197,7 +197,8 @@ services:
     volumes:
       - ./sites:/home/frappe/frappe-bench/sites
       - ./logs:/home/frappe/frappe-bench/logs
-
+    ports:
+      - 9000:9000
   pma:
     image: elestio/phpmyadmin
     restart: always
